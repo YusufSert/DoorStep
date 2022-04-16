@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href=" {{ asset('backend/images/favicon.ico')}}">
 
-    <title>Easy Ecommerce Admin - Dashboard</title>
+    <title>DoorStep Admin - Dashboard</title>
     {{ asset('')}}
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href=" {{ asset('backend/css/vendors_css.css')}}">
