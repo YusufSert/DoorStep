@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\SubCategoryController;
 
 
 /*
@@ -97,8 +98,8 @@ Route::prefix('category')->group(function(){
 
     // Admib Sub Category All routes
 
-    Route::get('sub/view',[CategoryController::class, 'CategoryView'])->name('all.category');
-    Route::post('sub/store', [CategoryController::class, 'CategoryStore'])->name('category.store');
+    Route::get('sub/view',[SubCategoryController::class, 'SubCategoryView'])->name('all.subcategory');
+    Route::post('sub/store', [SubCategoryController::class, 'SubCategoryStore'])->name('subcategory.store');
     Route::get('sub/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit'); // if method get use take variable from route "{{route('brand.edit', $item->id)}}"
     Route::post('sub/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
     Route::get('sub/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
