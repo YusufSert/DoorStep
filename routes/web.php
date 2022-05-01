@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
 
 
 /*
@@ -85,3 +86,20 @@ Route::prefix('brand')->group(function(){
 
 
 
+// Admin Category all Routes
+Route::prefix('category')->group(function(){
+    Route::get('/view',[CategoryController::class, 'CategoryView'])->name('all.category');
+    Route::post('/store', [CategoryController::class, 'CategoryStore'])->name('category.store');
+    Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit'); // if method get use take variable from route "{{route('brand.edit', $item->id)}}"
+    Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
+    Route::get('/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
+
+
+    // Admib Sub Category All routes
+
+    Route::get('sub/view',[CategoryController::class, 'CategoryView'])->name('all.category');
+    Route::post('sub/store', [CategoryController::class, 'CategoryStore'])->name('category.store');
+    Route::get('sub/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit'); // if method get use take variable from route "{{route('brand.edit', $item->id)}}"
+    Route::post('sub/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
+    Route::get('sub/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
+});
