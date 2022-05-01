@@ -78,6 +78,8 @@ Route::post('/user/password/update', [IndexController::class, 'UserPasswordUpdat
 Route::prefix('brand')->group(function(){
     Route::get('/view',[BrandController::class, 'BrandView'])->name('all.brand');
     Route::post('/store', [BrandController::class, 'Brandstore'])->name('brand.store');
+    Route::get('/edit/{id}', [BrandController::class, 'BrandEdit'])->name('brand.edit'); // if method get use take variable from route "{{route('brand.edit', $item->id)}}"
+    Route::post('/update', [BrandController::class, 'BrandUpdate'])->name('brand.update');
 });
 
 
