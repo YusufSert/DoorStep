@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\SubCategory;
-
+use App\Models\SubSubCategorty;
+use App\Models\SubSubCategory;
 
 class SubCategoryController extends Controller
 {
@@ -45,5 +46,55 @@ class SubCategoryController extends Controller
 
         return redirect()->back()->with($notification);
 
+    }
+
+    public function SubCategoryEdit($id) {
+        $categories = Category::orderBy('category_name_en', 'ASC')->get();
+        $subcategory= SubCategory::findOrFail($id);
+        return view('backend.category.subcategory_edit',compact('subcategory', 'categories'));
+    }
+
+    public function SubCategoryUpdate(Request $request)
+    {
+        $subcat_id = $request->id;
+        
+        SubCategory::findOrFail($subcat_id)->update([
+            'category_id' => $request->category_id,
+            'subcategory_name_en' => $request->subcategory_name_en,
+            'subcategory_name_tr' => $request->subcategory_name_tr,
+            'subcategory_slug_en' => strtolower(str_replace(' ', '-', $request->subcategory_name_en)),
+            'subcategory_slug_tr' => strtolower(str_replace(' ', '-', $request->subcategory_name_tr)),
+        ]);
+
+        return redirect()->route('all.subcategory');
+    }
+
+    public function SubCategoryDelete($id) {
+        SubCategory::findOrFail($id)->delete();
+        
+        $notification = array(
+            'message' => 'Category Deleted Succesfully',
+            'alert-type' => 'succes'
+
+        );
+
+        return redirect()->back()->with($notification);
+
+    }
+
+
+
+
+
+
+
+    ///// sub->subcategory ///////////////
+
+
+    public function SubSubCategoryView() {
+
+        $categories = Category::orderBy('category_name_en', 'ASC')->get();
+        $subsubcategories = SubSubCategory::latest()->get();
+        return view('backend.category.sub_subcategory_view');
     }
 }

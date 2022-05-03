@@ -16,4 +16,10 @@ class SubCategory extends Model
         'subcategory_slug_en',
         'subcategory_slug_tr',
     ];
+
+    public function category() {
+        return $this->belongsto(Category::class, 'category_id', 'id');
+    // Subcategory belognsto (Aittir) Catagory iki sini birleştirdim
+    }
 }
+
