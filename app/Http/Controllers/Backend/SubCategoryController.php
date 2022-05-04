@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\SubCategory;
-use App\Models\SubSubCategorty;
 use App\Models\SubSubCategory;
+
 
 class SubCategoryController extends Controller
 {
@@ -95,6 +95,15 @@ class SubCategoryController extends Controller
 
         $categories = Category::orderBy('category_name_en', 'ASC')->get();
         $subsubcategories = SubSubCategory::latest()->get();
-        return view('backend.category.sub_subcategory_view');
+        return view('backend.category.sub_subcategory_view', compact('subsubcategories', 'categories'));
     }
+
+   
+
+    public function GetSubCategory($category_id){
+
+        $subcat = SubCategory::where('category_id',$category_id)->orderBy('subcategory_name_en','ASC')->get();
+        return json_encode($subcat);
+    }
+
 }

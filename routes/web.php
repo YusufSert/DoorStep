@@ -107,8 +107,9 @@ Route::prefix('category')->group(function(){
     // Admin Sub-> SubCategory All routes
 
 
-    Route::get('/sub/sub/view', [Subcategory::class, 'SubSubCategory'])->name('all.subsubcategory');
-
+    Route::get('/sub/sub/view', [SubCategoryController::class, 'SubSubCategoryView'])->name('all.subsubcategory');
+    
+    Route::get('/subcategory/ajax/{category_id}', [SubCategoryController::class, 'GetSubCategory']);
 
 
 
