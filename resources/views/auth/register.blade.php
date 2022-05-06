@@ -51,6 +51,8 @@
 	<form method="POST" action="{{ route('register') }}">
             @csrf
 
+
+		
 		<div class="form-group">
 		    <label class="info-title" for="exampleInputEmail1">Name <span>*</span></label>
 		    <input type="name" class="form-control unicase-form-control text-input" id="name" name="name" >

@@ -80,7 +80,7 @@
 
 
                 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <h5>Password Input Field <span class="text-danger">*</span></h5>
                     <div class="controls">
                         <input type="password" name="password" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div></div>
@@ -90,7 +90,7 @@
                     <div class="controls">
                         <input type="password" name="password2" data-validation-match-match="password" class="form-control" required=""> <div class="help-block"></div></div>
                 </div>
-                
+                 -->
                 <!-- <div class="form-group">
                     <h5>Input with Icon <span class="text-danger">*</span></h5>
                     <div class="controls">

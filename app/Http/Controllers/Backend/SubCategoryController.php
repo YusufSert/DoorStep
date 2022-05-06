@@ -139,10 +139,11 @@ class SubCategoryController extends Controller
 
     public function SubSubCategoryEdit($id) {
         $categories = Category::orderBy('category_name_en', 'ASC')->get();
-        $subcategories = SubCategory::ordetBy('subcategory_name_en', 'ASC')->get();
+        $subcategories = SubCategory::orderBy('subcategory_name_en', 'ASC')->get();
         $subsubcategories = SubSubCategory::findOrFail($id);
 
         return view('backend.category.sub_subcategory_edit', compact('categories', 'subcategories', 'subsubcategories'));
     }
+    
 
 }

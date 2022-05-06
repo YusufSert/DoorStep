@@ -28,11 +28,14 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
+        $profilePhotoPath = "no_image.jpg";
         return User::create([
+            
             'name' => $input['name'],
             'email' => $input['email'],
             'phone' => $input['phone'],
             'password' => Hash::make($input['password']),
+            'profile_photo_path' => $profilePhotoPath,
         ]);
     }
 }

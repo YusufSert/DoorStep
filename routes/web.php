@@ -114,6 +114,6 @@ Route::prefix('category')->group(function(){
 
     Route::post('/sub/sub/store', [SubCategoryController::class , 'SubSubCategoryStore'])->name('subsubcategory.store');
 
-    Route::get('/sub/sub/edit/{id}', [SubCatagoryController::class], 'SubSubCatagoryEdit')->name('subsubcategory.edit');
+    Route::get('/sub/sub/edit/{id}', [SubCategoryController::class, 'SubSubCategoryEdit'])->name('subsubcategory.edit');
 
 });
